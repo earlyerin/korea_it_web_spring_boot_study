@@ -1,6 +1,7 @@
 package com.koreait.spring_boot_study.controller;
 
 import com.koreait.spring_boot_study.service.PostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,14 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/post") //공통적인 상위 경로
 public class PostController {
-    //Field
-    private final PostService postService;
-
-    //Constructor
-    public PostController(PostService postService){
-        this.postService = postService;
-    }
-
     //IOC_Inversion Of control(제어의 역전)
     //객체의 주도권을 개발자가 아닌 스프린부트가 가짐
     //Springboot에서 IOC container에 객체를 담아두고 관리
@@ -25,6 +18,19 @@ public class PostController {
 
     //DI_Dependency Injection(의존성 주입)
     //필요한 객체(의존성)를 직접 만들지 않고, 외부(스프링부트)에서 대신 넣어주는 것
+    //1. 생성자로 의존성 주입(권장하는 방식, 객체 생성 시 주입)
+//Field
+//    private final PostService postService; => final로 선언, 불변을 보장
+//
+//Constructor
+//    public PostController(PostService postService){ => 주입 강제
+//        this.postService = postService;
+//    }
+
+    //2. @Autowired 로 의존성 주입(지양하는 방식,컨테이너 초기화 시 주입)
+    // 주입 시점 오인으로 인해 NPE 발생 가능성 존재
+    @Autowired
+    private PostService postService;
 
     @GetMapping("/get") //요청 경로
     public String getPost(){
