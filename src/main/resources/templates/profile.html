@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필 페이지</title>
+</head>
+<body>
+    <h1 th:text="|안녕하세요, ${username}님!|"></h1> <!-- 동적 데이터 삽입 -->
+    <p th:utext="|안녕하세요, ${username}님!|"></p> <!-- 데이터의 태그 인식 - utext  -->
+    <p th:if="${isAdult}">성인입니다.</p> <!-- 조건문 -->
+    <p th:unless="${isAdult}">미성년자입니다.</p>
+    <p th:if="${age > 19}">19세 이상입니다.</p>
+    <tr th:each="user : ${userList}">  <!-- 반복문 -->
+        <td th:text="${user.key}"></td>
+        <td th:text="${user.value}"></td>
+        </br> <!--  -->
+    </tr>
+    <a th:href="@{/main}">메인페이지로 이동하기</a> <!-- 하이퍼링크 삽입 -->
+
+</body>
+</html>

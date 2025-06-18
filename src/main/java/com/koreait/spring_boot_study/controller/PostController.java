@@ -6,7 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@Controller
+/*
+ Controller
+ 1. RestController - 프론트로 Json, 문자열 등 데이터 반환
+                     REST API 서버(웹서버) (CSR - 클라이언트 사이드 렌더링 <-> SPA - 싱글 페이지 어플리케이션)
+                     프로트렌드 쪽에서 웹페이지 로드하고 백엔드는 요청에 해당하는 데이터만 반환하므로 비교적 빠름
+                     예) React(프론트엔드) <-> Springboot(백엔드)
+ 2. Controller
+ */
 @RestController
 @RequestMapping("/post") //공통적인 상위 경로
 public class PostController {
@@ -46,13 +53,3 @@ public class PostController {
     }
 }
 
-/*
- Controller
- 1. RestController - 프론트로 Json, 문자열 등 데이터 반환
-                     REST API 서버(웹서버) (CSR - 클라이언트 사이드 렌더링 <=> SPA - 싱글 페이지 어플리케이션)
-                     프로트렌드 쪽에서 웹페이지 로드하고 백엔드는 요청에 해당하는 데이터만 반환하므로 비교적 빠름
-                     예) React(프론트엔드) - Springboot(백엔드)
- 2. Controller - 서버 측에서 html 파일(웹페이지)을 반환하기 때문에 백엔드 서버에서 프론트까지 커버
-                 (SSR - 서버 사이드 렌더링)
-                 해당 요청 경로에 따라서 웹페이지가 모두 할당되므로 비교적 느리고 서버가 무거워짐
- */
