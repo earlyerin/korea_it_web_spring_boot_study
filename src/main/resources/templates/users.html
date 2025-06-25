@@ -5,9 +5,9 @@
     <title>회원 목록</title>
 </head>
 <body>
-    <table>
+    <table> <!-- 표 -->
         <tr>
-            <th>이름</th><th>나이</th><th>상태</th>
+            <th>이름</th><th>나이</th><th>상태</th> <!-- 열이름 -->
         </tr>
         <tr th:each="user: ${users}">
             <td th:text="${user.userName}"></td>

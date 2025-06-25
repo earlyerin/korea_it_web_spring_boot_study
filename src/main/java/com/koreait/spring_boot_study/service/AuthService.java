@@ -1,12 +1,9 @@
 package com.koreait.spring_boot_study.service;
 
-import com.koreait.spring_boot_study.dto.SigninRespDto;
 import com.koreait.spring_boot_study.dto.SignupReqDto;
 import com.koreait.spring_boot_study.dto.SignupRespDto;
 import com.koreait.spring_boot_study.repository.AuthRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
